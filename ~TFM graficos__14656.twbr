@@ -1,0 +1,1568 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0321.1733                               -->
+<workbook source-build='2019.1.2 (20191.19.0321.1733)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='property (postgres)' inline='true' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='airbnb.cagkumexp034.eu-west-3.rds.amazonaws.com' name='postgres.1wihrf50m5fj6a12yj3bo1hdiy63'>
+            <connection authentication='username-password' class='postgres' dbname='postgres' odbc-native-protocol='' one-time-sql='' port='5432' server='airbnb.cagkumexp034.eu-west-3.rds.amazonaws.com' username='grupo7eae' />
+          </named-connection>
+        </named-connections>
+        <relation join='full' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[property].[property_id]' />
+              <expression op='[property_info].[property_id]' />
+            </expression>
+          </clause>
+          <relation join='full' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[property].[property_id]' />
+                <expression op='[prices].[property_id]' />
+              </expression>
+            </clause>
+            <relation connection='postgres.1wihrf50m5fj6a12yj3bo1hdiy63' name='property' table='[public].[property]' type='table' />
+            <relation connection='postgres.1wihrf50m5fj6a12yj3bo1hdiy63' name='prices' table='[public].[prices]' type='table'>
+              <columns>
+                <column datatype='date' date-parse-format='yyyy-MM' name='last_scraped' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='postgres.1wihrf50m5fj6a12yj3bo1hdiy63' name='property_info' table='[public].[property_info]' type='table'>
+            <columns>
+              <column datatype='date' date-parse-format='yyyy-MM' name='last_scraped' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[accommodates]' value='[prices].[accommodates]' />
+          <map key='[bathrooms]' value='[property_info].[bathrooms]' />
+          <map key='[bed_type]' value='[property_info].[bed_type]' />
+          <map key='[bedrooms]' value='[property_info].[bedrooms]' />
+          <map key='[beds]' value='[property_info].[beds]' />
+          <map key='[cancellation_policy]' value='[prices].[cancellation_policy]' />
+          <map key='[city]' value='[property].[city]' />
+          <map key='[cleaning_fee]' value='[prices].[cleaning_fee]' />
+          <map key='[description]' value='[property_info].[description]' />
+          <map key='[extra_people]' value='[prices].[extra_people]' />
+          <map key='[guest_included]' value='[prices].[guest_included]' />
+          <map key='[host_id]' value='[property].[host_id]' />
+          <map key='[instant_bookable]' value='[property_info].[instant_bookable]' />
+          <map key='[last_scraped (property_info)]' value='[property_info].[last_scraped]' />
+          <map key='[last_scraped]' value='[prices].[last_scraped]' />
+          <map key='[latitude]' value='[property].[latitude]' />
+          <map key='[longitude]' value='[property].[longitude]' />
+          <map key='[name]' value='[property_info].[name]' />
+          <map key='[neighbourhood_cleansed]' value='[property].[neighbourhood_cleansed]' />
+          <map key='[neighbourhood_group_cleansed]' value='[property].[neighbourhood_group_cleansed]' />
+          <map key='[price]' value='[prices].[price]' />
+          <map key='[property_id (prices)]' value='[prices].[property_id]' />
+          <map key='[property_id (property_info)]' value='[property_info].[property_id]' />
+          <map key='[property_id]' value='[property].[property_id]' />
+          <map key='[property_type]' value='[property_info].[property_type]' />
+          <map key='[requires_license]' value='[property_info].[requires_license]' />
+          <map key='[room_type]' value='[property_info].[room_type]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>property_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[property_id]</local-name>
+            <parent-name>[property]</parent-name>
+            <remote-alias>property_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>host_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[host_id]</local-name>
+            <parent-name>[property]</parent-name>
+            <remote-alias>host_id</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neighbourhood_cleansed</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[neighbourhood_cleansed]</local-name>
+            <parent-name>[property]</parent-name>
+            <remote-alias>neighbourhood_cleansed</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neighbourhood_group_cleansed</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[neighbourhood_group_cleansed]</local-name>
+            <parent-name>[property]</parent-name>
+            <remote-alias>neighbourhood_group_cleansed</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>latitude</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[latitude]</local-name>
+            <parent-name>[property]</parent-name>
+            <remote-alias>latitude</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>28</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>longitude</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[longitude]</local-name>
+            <parent-name>[property]</parent-name>
+            <remote-alias>longitude</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>28</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[property]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[property_id (prices)]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>property_id</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>last_scraped</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[last_scraped]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>last_scraped</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[price]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>28</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cleaning_fee</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[cleaning_fee]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>cleaning_fee</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>28</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>guest_included</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[guest_included]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>guest_included</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>extra_people</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[extra_people]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>extra_people</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>28</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cancellation_policy</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[cancellation_policy]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>cancellation_policy</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>accommodates</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[accommodates]</local-name>
+            <parent-name>[prices]</parent-name>
+            <remote-alias>accommodates</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[property_id (property_info)]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>property_id</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>last_scraped</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[last_scraped (property_info)]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>last_scraped</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>description</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[description]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>description</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[property_type]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>property_type</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[room_type]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>room_type</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bathrooms</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[bathrooms]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>bathrooms</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>28</precision>
+            <scale>6</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_NUMERIC&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bedrooms</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[bedrooms]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>bedrooms</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>beds</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[beds]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>beds</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bed_type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[bed_type]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>bed_type</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>requires_license</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[requires_license]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>requires_license</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_BIT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>instant_bookable</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[instant_bookable]</local-name>
+            <parent-name>[property_info]</parent-name>
+            <remote-alias>instant_bookable</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Accommodates' datatype='integer' name='[accommodates]' role='measure' type='quantitative' />
+      <column caption='Bathrooms' datatype='real' name='[bathrooms]' role='measure' type='quantitative' />
+      <column caption='Bed Type' datatype='string' name='[bed_type]' role='dimension' type='nominal' />
+      <column caption='Bedrooms' datatype='integer' name='[bedrooms]' role='measure' type='quantitative' />
+      <column caption='Beds' datatype='integer' name='[beds]' role='measure' type='quantitative' />
+      <column caption='Cancellation Policy' datatype='string' name='[cancellation_policy]' role='dimension' type='nominal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Cleaning Fee' datatype='real' name='[cleaning_fee]' role='measure' type='quantitative' />
+      <column caption='Description' datatype='string' name='[description]' role='dimension' type='nominal' />
+      <column caption='Extra People' datatype='real' name='[extra_people]' role='measure' type='quantitative' />
+      <column caption='Guest Included' datatype='integer' name='[guest_included]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Host Id' datatype='integer' name='[host_id]' role='dimension' type='ordinal' />
+      <column caption='Instant Bookable' datatype='integer' name='[instant_bookable]' role='measure' type='quantitative' />
+      <column aggregation='Count' caption='Last Scraped (Property Info)' datatype='date' datatype-customized='true' name='[last_scraped (property_info)]' role='dimension' type='ordinal' />
+      <column caption='Last Scraped' datatype='date' datatype-customized='true' name='[last_scraped]' role='dimension' type='ordinal' />
+      <column aggregation='Avg' caption='Latitude' datatype='real' name='[latitude]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column aggregation='Avg' caption='Longitude' datatype='real' name='[longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Neighbourhood Cleansed' datatype='string' name='[neighbourhood_cleansed]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Neighbourhood Group Cleansed' datatype='string' name='[neighbourhood_group_cleansed]' role='dimension' semantic-role='[Congress].[Name]' type='nominal' />
+      <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Property Id (Prices)' datatype='integer' name='[property_id (prices)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Property Id (Property Info)' datatype='integer' name='[property_id (property_info)]' role='dimension' type='ordinal' />
+      <column caption='Property Id' datatype='integer' name='[property_id]' role='dimension' type='ordinal' />
+      <column caption='Property Type' datatype='string' name='[property_type]' role='dimension' type='nominal' />
+      <column caption='Requires License' datatype='boolean' name='[requires_license]' role='dimension' type='nominal' />
+      <column caption='Room Type' datatype='string' name='[room_type]' role='dimension' type='nominal' />
+      <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+      <column-instance column='[neighbourhood_group_cleansed]' derivation='None' name='[none:neighbourhood_group_cleansed:nk]' pivot='key' type='nominal' />
+      <drill-paths>
+        <drill-path name='Ubicacion'>
+          <field>[city]</field>
+          <field>[neighbourhood_group_cleansed]</field>
+          <field>[neighbourhood_cleansed]</field>
+        </drill-path>
+      </drill-paths>
+      <layout dim-ordering='alphabetic' dim-percentage='0.642857' measure-ordering='alphabetic' measure-percentage='0.357143' rowDisplayCount='100' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:city:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Lisboa&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Madrid&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:neighbourhood_group_cleansed:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Cascais&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Sintra&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Alenquer&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Moncloa - Aravaca&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Azambuja&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Puente de Vallecas&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Ciudad Lineal&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Usera&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Centro&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Sobral De Monte Agrao&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Barajas&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Retiro&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Lourinh&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Amadora&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Moratalaz&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Lisboa&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Villaverde&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Cadaval&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Salamanca&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Fuencarral - El Pardo&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Vicálvaro&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Hortaleza&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Vila Franca De Xira&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Loures&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Mafra&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Chamartín&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Tetuán&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Carabanchel&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;San Blas - Canillejas&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Arganzuela&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Odivelas&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Latina&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Villa de Vallecas&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Chamberí&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Torres Vedras&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Arruda Dos Vinhos&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Oeiras&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;España&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Hoja 8'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]</cols>
+      </table>
+      <simple-id uuid='{4FB90C24-0BD3-4C7E-B1F2-DD571817FDD7}' />
+    </worksheet>
+    <worksheet name='Mapa precios'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column-instance column='[latitude]' derivation='Avg' name='[avg:latitude:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[longitude]' derivation='Avg' name='[avg:longitude:qk]' pivot='key' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column aggregation='Avg' caption='Latitude' datatype='real' name='[latitude]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+            <column aggregation='Avg' caption='Longitude' datatype='real' name='[longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+            <column caption='Neighbourhood Cleansed' datatype='string' name='[neighbourhood_cleansed]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column caption='Neighbourhood Group Cleansed' datatype='string' name='[neighbourhood_group_cleansed]' role='dimension' semantic-role='[Congress].[Name]' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed]' derivation='None' name='[none:neighbourhood_cleansed:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_group_cleansed]' derivation='None' name='[none:neighbourhood_group_cleansed:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:longitude:qk]' field-type='quantitative' max='-862240.06558331859' min='-1083261.2229476972' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:latitude:qk]' field-type='quantitative' max='4767086.9193630349' min='4636003.5311403386' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' palette='orange_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='true' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='true' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='true' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0' />
+            <format attr='map-style' value='' />
+          </style-rule>
+          <style-rule element='map-data-layer'>
+            <format attr='palette' value='tableau-map-blue-green-light' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <lod column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]' />
+              <lod column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_cleansed:nk]' />
+              <lod column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_group_cleansed:nk]' />
+              <color column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+              <geometry column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:latitude:qk]</rows>
+        <cols>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:longitude:qk]</cols>
+      </table>
+      <simple-id uuid='{88CAF007-92AB-4056-9745-9B1DDF935D12}' />
+    </worksheet>
+    <worksheet name='Precio barrios Lisboa circulitos'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Neighbourhood Cleansed' datatype='string' name='[neighbourhood_cleansed]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column caption='Neighbourhood Group Cleansed' datatype='string' name='[neighbourhood_group_cleansed]' role='dimension' semantic-role='[Congress].[Name]' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed]' derivation='None' name='[none:neighbourhood_cleansed:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_group_cleansed]' derivation='None' name='[none:neighbourhood_group_cleansed:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]'>
+            <groupfilter function='member' level='[none:city:nk]' member='&quot;Lisboa&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+              <lod column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]' />
+              <text column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_group_cleansed:nk]' />
+              <text column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_cleansed:nk]' />
+              <color column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{49A100FD-8FAA-4CA5-99BA-CE4362D885D6}' />
+    </worksheet>
+    <worksheet name='Precio barrios Lisboa por colores'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Neighbourhood Cleansed' datatype='string' name='[neighbourhood_cleansed]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column caption='Neighbourhood Group Cleansed' datatype='string' name='[neighbourhood_group_cleansed]' role='dimension' semantic-role='[Congress].[Name]' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed]' derivation='None' name='[none:neighbourhood_cleansed:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_group_cleansed]' derivation='None' name='[none:neighbourhood_group_cleansed:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]'>
+            <groupfilter function='member' level='[none:city:nk]' member='&quot;Lisboa&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_group_cleansed:nk]' value='176' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+            <encoding attr='color' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' num-steps='100' palette='orange_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+              <text column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk] / ([federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_group_cleansed:nk] / [federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_cleansed:nk]))</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{6A779F7A-FB98-4477-9799-01BF850A1226}' />
+    </worksheet>
+    <worksheet name='Precio barrios Madrid circulitos'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Neighbourhood Cleansed' datatype='string' name='[neighbourhood_cleansed]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column caption='Neighbourhood Group Cleansed' datatype='string' name='[neighbourhood_group_cleansed]' role='dimension' semantic-role='[Congress].[Name]' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed]' derivation='None' name='[none:neighbourhood_cleansed:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_group_cleansed]' derivation='None' name='[none:neighbourhood_group_cleansed:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]'>
+            <groupfilter function='member' level='[none:city:nk]' member='&quot;Madrid&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+              <lod column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]' />
+              <text column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_group_cleansed:nk]' />
+              <text column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_cleansed:nk]' />
+              <color column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{87F2CECD-A759-482C-AB5B-AA9021F09B7A}' />
+    </worksheet>
+    <worksheet name='Precio barrios Madrid por colores'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Neighbourhood Cleansed' datatype='string' name='[neighbourhood_cleansed]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+            <column caption='Neighbourhood Group Cleansed' datatype='string' name='[neighbourhood_group_cleansed]' role='dimension' semantic-role='[Congress].[Name]' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed]' derivation='None' name='[none:neighbourhood_cleansed:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_group_cleansed]' derivation='None' name='[none:neighbourhood_group_cleansed:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]'>
+            <groupfilter function='member' level='[none:city:nk]' member='&quot;Madrid&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_group_cleansed:nk]' value='176' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+            <encoding attr='color' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' num-steps='100' palette='orange_gold_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+              <text column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk] / ([federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_group_cleansed:nk] / [federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:neighbourhood_cleansed:nk]))</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{A66CA83B-657C-4405-B1F8-8227A86659A9}' />
+    </worksheet>
+    <worksheet name='evolucion nº viviendas'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[property_id]' derivation='Count' name='[cum:cnt:property_id:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+            </column-instance>
+            <column aggregation='Count' caption='Last Scraped (Property Info)' datatype='date' datatype-customized='true' name='[last_scraped (property_info)]' role='dimension' type='ordinal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column caption='Property Id' datatype='integer' name='[property_id]' role='dimension' type='ordinal' />
+            <column-instance column='[last_scraped (property_info)]' derivation='Month-Trunc' name='[tmn:last_scraped (property_info):qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f28e2b' />
+                <format attr='mark-markers-mode' value='none' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[cum:cnt:property_id:qk]</rows>
+        <cols>([federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk] * [federated.0y55hne0z82j4y16cf6rn19nz2qg].[tmn:last_scraped (property_info):qk])</cols>
+      </table>
+      <simple-id uuid='{7FA162A1-78F8-4412-8CBF-20E705BAA205}' />
+    </worksheet>
+    <worksheet name='meses precios mas altos y bajos'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='property (postgres)' name='federated.0y55hne0z82j4y16cf6rn19nz2qg' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0y55hne0z82j4y16cf6rn19nz2qg'>
+            <column-instance column='[price]' derivation='Avg' name='[avg:price:qk]' pivot='key' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Last Scraped' datatype='date' datatype-customized='true' name='[last_scraped]' role='dimension' type='ordinal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column-instance column='[last_scraped]' derivation='Month-Trunc' name='[tmn:last_scraped:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]' palette='red_gold_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]</rows>
+        <cols>([federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk] * [federated.0y55hne0z82j4y16cf6rn19nz2qg].[tmn:last_scraped:qk])</cols>
+        <annotations>
+          <annotation class='point' id='0' mark-position='1' pullback='0' text-width='180'>
+            <formatted-text>
+              <run bold='true'>Precio más alto</run>
+              <run>&#10;Enero 2019: 95,52€</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='axis'>
+                <x-coord axis-value='#2018-12-26 15:10:35.538#'>
+                  <node-reference>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[tmn:last_scraped:qk]</axis>
+                  </node-reference>
+                </x-coord>
+                <y-coord axis-value='92.616447142952808'>
+                  <node-reference>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]</axis>
+                  </node-reference>
+                </y-coord>
+                <page-reference />
+              </visual-coordinate>
+            </point>
+            <body x='-62' y='129' />
+          </annotation>
+          <annotation class='point' id='1' mark-position='1' pullback='0' text-width='180'>
+            <formatted-text>
+              <run bold='true' fontalignment='1'>Precio más bajo</run>
+              <run fontalignment='1'>&#10;Julio 2015: 62,94€</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='axis'>
+                <x-coord axis-value='#2015-07-01 07:33:48.461#'>
+                  <node-reference>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[tmn:last_scraped:qk]</axis>
+                  </node-reference>
+                </x-coord>
+                <y-coord axis-value='61.845851217169141'>
+                  <node-reference>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]</axis>
+                  </node-reference>
+                </y-coord>
+                <page-reference />
+              </visual-coordinate>
+            </point>
+            <body x='159' y='43' />
+          </annotation>
+          <annotation class='point' id='2' mark-position='1' pullback='0' text-width='180'>
+            <formatted-text>
+              <run bold='true'>Precio más bajo</run>
+              <run>&#10;Julio 2015: 66,67€</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='axis'>
+                <x-coord axis-value='#2015-06-28 02:08:50.965#'>
+                  <node-reference>
+                    <fields>
+                      <field>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]</field>
+                    </fields>
+                    <multibucket>
+                      <bucket>&quot;Madrid&quot;</bucket>
+                    </multibucket>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[tmn:last_scraped:qk]</axis>
+                  </node-reference>
+                </x-coord>
+                <y-coord axis-value='66.119462467923228'>
+                  <node-reference>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]</axis>
+                  </node-reference>
+                </y-coord>
+                <page-reference />
+              </visual-coordinate>
+            </point>
+            <body x='75' y='116' />
+          </annotation>
+          <annotation class='point' id='4' mark-position='1' pullback='0' text-width='180'>
+            <formatted-text>
+              <run bold='true' fontalignment='1'>Precio más alto</run>
+              <run fontalignment='1'>&#10;Enero 2019: 88,06€</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='axis'>
+                <x-coord axis-value='#2018-12-29 17:15:06.254#'>
+                  <node-reference>
+                    <fields>
+                      <field>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[none:city:nk]</field>
+                    </fields>
+                    <multibucket>
+                      <bucket>&quot;Madrid&quot;</bucket>
+                    </multibucket>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[tmn:last_scraped:qk]</axis>
+                  </node-reference>
+                </x-coord>
+                <y-coord axis-value='87.478718752097947'>
+                  <node-reference>
+                    <axis>[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]</axis>
+                  </node-reference>
+                </y-coord>
+                <page-reference />
+              </visual-coordinate>
+            </point>
+            <body x='-54' y='144' />
+          </annotation>
+        </annotations>
+      </table>
+      <simple-id uuid='{26BBBE05-2A69-4BBE-9C4A-DF919DE55C71}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='37'>
+    <window class='worksheet' name='Mapa precios'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='172'>
+            <card pane-specification-id='0' param='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{2E716766-AC3C-48DF-8FBA-C71C6C28F9EE}' />
+    </window>
+    <window class='worksheet' name='Precio barrios Madrid circulitos'>
+      <cards>
+        <edge name='left'>
+          <strip size='217'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='174'>
+            <card pane-specification-id='0' param='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{07D74854-1A8A-4E5D-BF96-4DE9CAA56615}' />
+    </window>
+    <window class='worksheet' name='Precio barrios Madrid por colores'>
+      <cards>
+        <edge name='left'>
+          <strip size='216'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='173'>
+            <card pane-specification-id='0' param='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{37A9CF00-536F-40E3-A415-66F428F4F937}' />
+    </window>
+    <window class='worksheet' name='Precio barrios Lisboa por colores'>
+      <cards>
+        <edge name='left'>
+          <strip size='216'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='173'>
+            <card pane-specification-id='0' param='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{65AA97C3-1DB0-49C2-9F29-987AC9EFBFD5}' />
+    </window>
+    <window class='worksheet' name='Precio barrios Lisboa circulitos'>
+      <cards>
+        <edge name='left'>
+          <strip size='216'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='173'>
+            <card pane-specification-id='0' param='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[sum:price:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B7D6AE2A-30FD-4472-B57E-192B11E55177}' />
+    </window>
+    <window class='worksheet' name='meses precios mas altos y bajos'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='174'>
+            <card pane-specification-id='0' param='[federated.0y55hne0z82j4y16cf6rn19nz2qg].[avg:price:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A9E2A850-B5AD-4DA1-8EE8-4B9039ABC678}' />
+    </window>
+    <window class='worksheet' maximized='true' name='evolucion nº viviendas'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C5F36889-55F3-4443-8591-B8CAC9A53576}' />
+    </window>
+    <window class='worksheet' name='Hoja 8'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{00CB55BB-88B3-4CB1-8185-072F87555DBD}' />
+    </window>
+  </windows>
+</workbook>
